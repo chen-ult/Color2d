@@ -9,11 +9,11 @@ size = Vector2(16.666649, 16)
 collision_layer = 4
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=53087762]
-position = Vector2(-2.3841858e-07, -13)
+position = Vector2(-2.3841858e-07, -8)
 scale = Vector2(0.96000105, 1)
 shape = SubResource("RectangleShape2D_box")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=929794733]
 texture_filter = 1
-position = Vector2(8, -5)
+position = Vector2(8, 0)
 texture = ExtResource("1_m4mgt")

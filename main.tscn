@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://d1jaadj1xgr2n"]
+
+[ext_resource type="Script" uid="uid://bhrr1nwhsdh4v" path="res://scripts/color/colorable.gd" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ctk8y6plmrmec" path="res://art/else/plant.png" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://bkgp83ocrv3oh" path="res://color_change/colorable_sprite.gd" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c00g7qises46" path="res://art/else/rock.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://f786ctid8622" path="res://art/else/tree.png" id="5_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ckv74s8mkhqcg" path="res://scenes/player.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://c72jfj8on1i3d" path="res://color_change/hud.gd" id="7_kek77"]
+
+[sub_resource type="RectangleShape2D" id="Rect_ground"]
+size = Vector2(1600, 32)
+
+[sub_resource type="RectangleShape2D" id="Rect_platform"]
+size = Vector2(110, 12)
+
+[node name="Node2D" type="Node2D" unique_id=2101478683]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1915847272]
+collision_layer = 2
+
+[node name="Visual" type="Polygon2D" parent="Ground" unique_id=2029656355]
+polygon = PackedVector2Array(-800, 0, 800, 0, 800, 64, -800, 64)
+
+[node name="Collision" type="CollisionShape2D" parent="Ground" unique_id=1085783733]
+position = Vector2(0, 16)
+shape = SubResource("Rect_ground")
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=48344978]
+collision_layer = 2
+
+[node name="Visual" type="Polygon2D" parent="Platform1" unique_id=410159483]
+polygon = PackedVector2Array(95, -35, 205, -35, 205, -23, 95, -23)
+
+[node name="Collision" type="CollisionShape2D" parent="Platform1" unique_id=1352222767]
+position = Vector2(150, -29)
+shape = SubResource("Rect_platform")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=447769293]
+collision_layer = 2
+
+[node name="Visual" type="Polygon2D" parent="Platform2" unique_id=1229420230]
+polygon = PackedVector2Array(265, -70, 375, -70, 375, -58, 265, -58)
+
+[node name="Collision" type="CollisionShape2D" parent="Platform2" unique_id=1071587231]
+position = Vector2(320, -64)
+shape = SubResource("Rect_platform")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=49663590]
+collision_layer = 2
+
+[node name="Visual" type="Polygon2D" parent="Platform3" unique_id=1081184998]
+polygon = PackedVector2Array(445, -35, 555, -35, 555, -23, 445, -23)
+
+[node name="Collision" type="CollisionShape2D" parent="Platform3" unique_id=839577780]
+position = Vector2(500, -29)
+shape = SubResource("Rect_platform")
+
+[node name="plant1" type="Sprite2D" parent="." unique_id=861790035 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(-60, -8)
+texture = ExtResource("3_7mycd")
+script = ExtResource("3_5vw27")
+
+[node name="plant2" type="Sprite2D" parent="." unique_id=1158312838 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(-20, -8)
+texture = ExtResource("3_7mycd")
+script = ExtResource("3_5vw27")
+
+[node name="plant_p1" type="Sprite2D" parent="." unique_id=1865085346 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(150, -43)
+texture = ExtResource("3_7mycd")
+script = ExtResource("3_5vw27")
+
+[node name="plant_p2" type="Sprite2D" parent="." unique_id=828593471 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(320, -78)
+texture = ExtResource("3_7mycd")
+script = ExtResource("3_5vw27")
+
+[node name="rock1" type="Sprite2D" parent="." unique_id=1377076259 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(40, -8)
+texture = ExtResource("4_272bh")
+script = ExtResource("4_5vw27")
+
+[node name="rock2" type="Sprite2D" parent="." unique_id=537927551 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(200, -8)
+texture = ExtResource("4_272bh")
+script = ExtResource("4_5vw27")
+
+[node name="rock_p3" type="Sprite2D" parent="." unique_id=1234061495 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(500, -43)
+texture = ExtResource("4_272bh")
+script = ExtResource("4_5vw27")
+
+[node name="tree1" type="Sprite2D" parent="." unique_id=1854762440 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(-120, -32)
+texture = ExtResource("5_5vw27")
+script = ExtResource("4_5vw27")
+
+[node name="tree2" type="Sprite2D" parent="." unique_id=708682478 groups=["colorable"]]
+texture_filter = 1
+position = Vector2(360, -32)
+texture = ExtResource("5_5vw27")
+script = ExtResource("4_5vw27")
+
+[node name="Player" parent="." unique_id=1634637682 groups=["player"] instance=ExtResource("5_lquwl")]
+position = Vector2(0, -40)
+outline_width = 1.0
+outline_color = Color(0.011764706, 0.011764706, 0, 1)
+
+[node name="Camera" type="Camera2D" parent="Player" unique_id=1160759970]
+zoom = Vector2(4, 4)
+limit_left = -800
+limit_top = -400
+limit_right = 800
+limit_bottom = 100
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1214623732]
+script = ExtResource("7_kek77")
+
+[node name="ColorLabel" type="Label" parent="HUD" unique_id=1407118993]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 13.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
